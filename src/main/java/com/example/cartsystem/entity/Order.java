@@ -3,6 +3,7 @@ package com.example.cartsystem.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "orders")
@@ -17,6 +18,7 @@ public class Order {
     private Double totalAmount;
     private LocalDateTime orderDate;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
