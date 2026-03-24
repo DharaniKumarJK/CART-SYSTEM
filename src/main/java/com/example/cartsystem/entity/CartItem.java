@@ -2,6 +2,7 @@ package com.example.cartsystem.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "cart_items")
@@ -19,6 +20,7 @@ public class CartItem {
 
     private Integer quantity;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;

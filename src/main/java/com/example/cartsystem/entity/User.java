@@ -3,6 +3,7 @@ package com.example.cartsystem.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.Set;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "users")
@@ -16,8 +17,11 @@ public class User {
 
     @Column(unique = true)
     private String username;
+    
+    @JsonIgnore
     private String password;
 
+    @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
         name = "user_roles",
